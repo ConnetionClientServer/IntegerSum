@@ -11,6 +11,13 @@ public class Server {
 	    	System.out.println("Apro la connessione sulla porta 9000");
 	    	Socket socket = service.accept();
 	    	System.out.println("Un client si è connesso!");
+		//BufferedReader byClient = new BufferedReader (new InputStreamReader(socket.getInputStream()));
+            	//BufferedWriter toClient = new BufferedWriter (new OutputStreamWriter(socket.getOutputStream()));
+            	//toClient.write("Dammi i numeri da sommare!! Adesso!");
+            	//toClient.flush();
+		    
+		//byClient.readLine();
+		    
 	    	socket.close();
 	    	service.close();
 	    }
