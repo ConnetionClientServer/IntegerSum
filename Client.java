@@ -13,9 +13,38 @@ public class Client {
 			System.out.println("Connesso");
 			
 			//BufferedReader byServer = new BufferedReader (new InputStreamReader(client.getInputStream()));
+			//BufferedWriter toServer = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
+                        //String operator, number, number2;
+			//Scanner input = new Scanner(System.in);
+                        //System.out.println("Inserisci l'operazione (+/-)");
+                        //operator = input.nextLine();
+                        //toServer.write(operator);
+                        //toServer.flush();
+                        
+                        //System.out.println("Inserisci il primo numero :");
+                        //number = input.nextLine();
+                        //toServer.write(number);
+                        //toServer.flush();
+                        
+                        //System.out.println("Inserisci il secondo numero :");
+                        //number2 = input.nextLine();
+                        
+                        //toServer.write(number2);
+                        //toServer.flush();
+			
+			
+			/*System.out.println("Mi vedi Server?");
+                        System.out.println("hai scritto: " + input);
+                        byServer.read();
+                        toServer.newLine();
+                        toServer.flush();*/
+			
+			
+			
+			
 		}
 		catch(IOException e){
-			System.out.println(e);
+			System.out.println(e + "Arrivederci Server!");
 		}
 	}
 }
