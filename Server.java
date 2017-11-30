@@ -19,6 +19,8 @@ public class Server {
 		    
 		//operator = byClient.readLine();
             	//System.out.println("E' stato inserito l'operatore " + operator);
+		    
+/******  Arrivato qui il server mi stampa tutto il flusso client all'interno di operator, ad esempio "+25"  ******/
             
             	//number = byClient.readLine();
             	//System.out.println("E' stato inserito il 1 numero " + number);
