@@ -5,6 +5,7 @@ import java.net.SocketTimeoutException;
 
 public class Server {
 	public static void main(String[] args) {
+		//String operator, number, number2;
 	    try {
 	    	ServerSocket service = new ServerSocket(9000);
 	    	service.setSoTimeout(10000);
@@ -16,7 +17,14 @@ public class Server {
             	//toClient.write("Dammi i numeri da sommare!! Adesso!");
             	//toClient.flush();
 		    
-		//byClient.readLine();
+		//operator = byClient.readLine();
+            	//System.out.println("E' stato inserito l'operatore " + operator);
+            
+            	//number = byClient.readLine();
+            	//System.out.println("E' stato inserito il 1 numero " + number);
+            
+            	//number2 = byClient.readLine();
+            	//System.out.println("E' stato inserito il 2 numero " + number2);
 		    
 	    	socket.close();
 	    	service.close();
@@ -25,7 +33,7 @@ public class Server {
 	    	System.out.println("Tempo scaduto");
 	    }
 	    catch (IOException e) {
-	           System.out.println(e);
+	           System.out.println(e + "ciao ciao");
 	    }
 	}
 }
