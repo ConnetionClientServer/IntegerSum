@@ -17,26 +17,26 @@ public class Server {
 	    	System.out.println("Un client si è connesso!");
 		    
 		    
-			BufferedReader byClient = new BufferedReader (new InputStreamReader(socket.getInputStream()));
-            BufferedWriter toClient = new BufferedWriter (new OutputStreamWriter(socket.getOutputStream()));
-            toClient.write("Dammi i numeri da sommare!! Adesso!");
-            toClient.flush();
+		BufferedReader byClient = new BufferedReader (new InputStreamReader(socket.getInputStream()));
+            	BufferedWriter toClient = new BufferedWriter (new OutputStreamWriter(socket.getOutputStream()));
+            	toClient.write("Dammi i numeri da sommare!! Adesso!");
+            	toClient.flush();
 		    
-			operator = byClient.readLine();
-            System.out.println("E' stato inserito l'operatore: " + operator);
+		operator = byClient.readLine();
+            	System.out.println("E' stato inserito l'operatore: " + operator);
 			
-			number = Integer.parseInt(byClient.readLine());
-            System.out.println("E' stato inserito il 1° numero: " + number);
+		number = Integer.parseInt(byClient.readLine());
+            	System.out.println("E' stato inserito il 1° numero: " + number);
             
-            number2 = Integer.parseInt(byClient.readLine());
-            System.out.println("E' stato inserito il 2° numero: " + number2);
+            	number2 = Integer.parseInt(byClient.readLine());
+            	System.out.println("E' stato inserito il 2° numero: " + number2);
             
-            if(!operator.equals("-") )  {
-                total = number+number2;
-            }else
-                total = number-number2;
+            	if(!operator.equals("-") )  {
+                	total = number+number2;
+            	}else
+                	total = number-number2;
             
-            System.out.println("Il tuo risultato è: " + number + operator + number2 +"= " + total);
+            	System.out.println("Il tuo risultato è: " + number + operator + number2 +"= " + total);
 			
 	    	socket.close();
 	    	service.close();
