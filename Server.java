@@ -12,13 +12,15 @@ public class Server {
 	    	System.out.println("Apro la connessione sulla porta 9000");
 	    	Socket socket = service.accept();
 	    	System.out.println("Un client si è connesso!");
-		//BufferedReader byClient = new BufferedReader (new InputStreamReader(socket.getInputStream()));
-            	//BufferedWriter toClient = new BufferedWriter (new OutputStreamWriter(socket.getOutputStream()));
-            	//toClient.write("Dammi i numeri da sommare!! Adesso!");
-            	//toClient.flush();
 		    
-		//operator = byClient.readLine();
-            	//System.out.println("E' stato inserito l'operatore " + operator);
+		    
+		BufferedReader byClient = new BufferedReader (new InputStreamReader(socket.getInputStream()));
+            	BufferedWriter toClient = new BufferedWriter (new OutputStreamWriter(socket.getOutputStream()));
+            	toClient.write("Dammi i numeri da sommare!! Adesso!");
+            	toClient.flush();
+		    
+		operator = byClient.readLine();
+            	System.out.println("E' stato inserito l'operatore " + operator);
 		    
 /******  Arrivato qui il server mi stampa tutto il flusso client all'interno di operator, ad esempio "+25"  ******/
             
