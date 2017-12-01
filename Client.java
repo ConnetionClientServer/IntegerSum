@@ -12,8 +12,8 @@ public class Client {
 			Socket client = new Socket("127.0.0.1" , 9000);
 			System.out.println("Connesso");
 			
-			//BufferedReader byServer = new BufferedReader (new InputStreamReader(client.getInputStream()));
-			//BufferedWriter toServer = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
+			BufferedReader byServer = new BufferedReader (new InputStreamReader(client.getInputStream()));
+			BufferedWriter toServer = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
 			
 			
 	/***Marco consiglia così:		
@@ -23,23 +23,23 @@ public class Client {
 	Così il Servere dovrebbe leggere una stringa alla volta**/
 			
 			
-                        //String operator, number, number2;
-			//Scanner input = new Scanner(System.in);
-                        //System.out.println("Inserisci l'operazione (+/-)");
-                        //operator = input.nextLine();
-                        //toServer.write(operator);
-                        //toServer.flush();
+                        String operator, number, number2;
+			Scanner input = new Scanner(System.in);
+                        System.out.println("Inserisci l'operazione (+/-)");
+                        operator = input.nextLine();
+                        toServer.write(operator);
+                        toServer.flush();
                         
-                        //System.out.println("Inserisci il primo numero :");
-                        //number = input.nextLine();
-                        //toServer.write(number);
-                        //toServer.flush();
+                        System.out.println("Inserisci il primo numero :");
+                        number = input.nextLine();
+                        toServer.write(number);
+                        toServer.flush();
                         
-                        //System.out.println("Inserisci il secondo numero :");
-                        //number2 = input.nextLine();
+                        System.out.println("Inserisci il secondo numero :");
+                        number2 = input.nextLine();
                         
-                        //toServer.write(number2);
-                        //toServer.flush();
+                        toServer.write(number2);
+                        toServer.flush();
 			
 			
 			/*System.out.println("Mi vedi Server?");
