@@ -1,7 +1,5 @@
-import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.SocketTimeoutException;
+import java.io.*;
+import java.net.*;
 
 public class Server {
 	public static void main(String[] args) {
@@ -14,30 +12,29 @@ public class Server {
 	    	service.setSoTimeout(10000);
 	    	System.out.println("Apro la connessione sulla porta 9000");
 	    	Socket socket = service.accept();
-	    	System.out.println("Un client si è connesso!");
-		    
+	    	System.out.println("Un client si è connesso!"); 
 		    
 		BufferedReader byClient = new BufferedReader (new InputStreamReader(socket.getInputStream()));
             	BufferedWriter toClient = new BufferedWriter (new OutputStreamWriter(socket.getOutputStream()));
-            	toClient.write("Dammi i numeri da sommare!! Adesso!");
-            	toClient.flush();
-		    
-		operator = byClient.readLine();
-            	System.out.println("E' stato inserito l'operatore: " + operator);
-			
-		number = Integer.parseInt(byClient.readLine());
-            	System.out.println("E' stato inserito il 1° numero: " + number);
-            
-            	number2 = Integer.parseInt(byClient.readLine());
-            	System.out.println("E' stato inserito il 2° numero: " + number2);
-            
-            	if(!operator.equals("-") )  {
-                	total = number+number2;
-            	}else
-                	total = number-number2;
-            
-            	System.out.println("Il tuo risultato è: " + number + operator + number2 +"= " + total);
-			
+                PrintStream xx = new PrintStream(socket.getOutputStream());
+                
+                /*operator = byClient.readLine();
+                System.out.println("E' stato inserito l'operatore: " + operator);*/
+                total = Integer.parseInt(byClient.readLine());
+                System.out.println("E' stato inserito il numero: " + total);       
+                operator = byClient.readLine();
+                System.out.println("E' stato inserito l'operatore: " + operator);
+                while(!operator.equals("stop")){
+                    number = Integer.parseInt(byClient.readLine());
+                    System.out.println("E' stato inserito il numero: " + number);
+                    if(!operator.equals("-") )  {
+                            total = total + number;
+                    }else total = total - number;
+                    xx.println("Il tuo risultato è: " + total);
+                    System.out.println("Il tuo risultato è: " + total);
+                    operator = byClient.readLine();
+                    System.out.println("E' stato inserito l'operatore: " + operator);
+                }	
 	    	socket.close();
 	    	service.close();
 	    }

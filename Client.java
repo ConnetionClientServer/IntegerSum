@@ -1,8 +1,6 @@
-import java.io.IOException;
-import java.net.Socket;
-//import java.io.BufferedReader;
-//import java.io.InputStreamReader;
-
+import java.io.*;
+import java.net.*;
+import java.util.Scanner;
 
 public class Client {
 	public static void main(String[] args) {
@@ -25,26 +23,27 @@ public class Client {
 			
                         String operator, number, number2;
 			Scanner input = new Scanner(System.in);
-                        System.out.println("Inserisci l'operazione (+/-)");
-                        operator = input.nextLine();
-			xx.println(operator);
-                        //toServer.write(operator);
-                        //toServer.flush();
-                        
-                        System.out.println("Inserisci il primo numero :");
-                        number = input.nextLine();
-			xx.println(number);
-			
                         //toServer.write(number);
                         //toServer.flush();
-                        
-                        System.out.println("Inserisci il secondo numero :");
-                        number2 = input.nextLine();
-                        xx.println(number2);
+                        System.out.println("Inserisci il numero :");
+                        number = input.nextLine();
+			xx.println(number);
                         //toServer.write(number2);
                         //toServer.flush();
-			
-			
+                        System.out.println("Inserisci l'operazione (+/-) o stop");
+                        operator = input.nextLine();
+                        xx.println(operator);
+                        while(!operator.equals("stop")){
+                            System.out.println("Inserisci il numero :");
+                            number = input.nextLine();
+                            xx.println(number);
+                            
+                            System.out.println("Risultato: " + byServer.readLine());
+                            
+                            System.out.println("Inserisci l'operazione (+/-) o stop");
+                            operator = input.nextLine();
+                            xx.println(operator);
+                        }
 			/*System.out.println("Mi vedi Server?");
                         System.out.println("hai scritto: " + input);
                         byServer.read();
