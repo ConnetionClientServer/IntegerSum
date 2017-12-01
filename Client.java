@@ -16,9 +16,9 @@ public class Client {
 			BufferedWriter toServer = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
 			
 			
-	/***Marco consiglia così:		
-			//PrintStream xx = new PrintStream(client.getOutputStream());
-			//xx.println(operator);
+	/***Marco consiglia così:*/		
+			PrintStream xx = new PrintStream(client.getOutputStream());
+	
 	/***Teoricamente dovrebbe esserci flush() di default. Questo serve ad inserire l'invio. 
 	Così il Servere dovrebbe leggere una stringa alla volta**/
 			
@@ -27,19 +27,22 @@ public class Client {
 			Scanner input = new Scanner(System.in);
                         System.out.println("Inserisci l'operazione (+/-)");
                         operator = input.nextLine();
-                        toServer.write(operator);
-                        toServer.flush();
+			xx.println(operator);
+                        //toServer.write(operator);
+                        //toServer.flush();
                         
                         System.out.println("Inserisci il primo numero :");
                         number = input.nextLine();
-                        toServer.write(number);
-                        toServer.flush();
+			xx.println(number);
+			
+                        //toServer.write(number);
+                        //toServer.flush();
                         
                         System.out.println("Inserisci il secondo numero :");
                         number2 = input.nextLine();
-                        
-                        toServer.write(number2);
-                        toServer.flush();
+                        xx.println(number2);
+                        //toServer.write(number2);
+                        //toServer.flush();
 			
 			
 			/*System.out.println("Mi vedi Server?");
